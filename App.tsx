@@ -10,20 +10,12 @@ import { TeamsPage } from './pages/TeamsPage';
 import { DriverDetailPage } from './pages/DriverDetailPage';
 import { SchedulePage } from './pages/SchedulePage';
 import { RaceResultsPage } from './pages/RaceResultsPage';
+import { DriverStandingsPage } from './pages/DriverStandingsPage';
 import { MenuIcon, XIcon } from './components/icons/Icons';
 import { NAV_LINKS, HEADER_LINKS, DRIVERS_2025_ROSTER, RESULTS_DROPDOWN_LINKS } from './constants';
 import type { NavLinkItem } from './types';
 import { Footer } from './components/Footer';
-
-// Placeholder Page for new routes
-const PlaceholderPage: React.FC<{ title: string }> = ({ title }) => (
-    <div className="flex justify-center items-center h-full animate-fade-in">
-        <div className="text-center">
-            <h1 className="text-4xl font-extrabold">{title}</h1>
-            <p className="mt-4 text-gray-400">Content for this page is coming soon.</p>
-        </div>
-    </div>
-);
+import { PlaceholderPage } from './components/common/PlaceholderPage';
 
 const Header: React.FC = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -169,7 +161,7 @@ const App: React.FC = () => {
               
               <Route path="/schedule" element={<SchedulePage />} />
               <Route path="/results" element={<RaceResultsPage />} />
-              <Route path="/results/driver-standing" element={<PlaceholderPage title="Driver Standings" />} />
+              <Route path="/results/driver-standing" element={<DriverStandingsPage />} />
               <Route path="/results/team-standing" element={<PlaceholderPage title="Team Standings" />} />
               <Route path="/results/f1-award" element={<PlaceholderPage title="F1 Awards" />} />
               <Route path="/news" element={<NewsPage />} />

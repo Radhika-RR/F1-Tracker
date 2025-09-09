@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster, NewsArticle, Team, DriverDetail, FullRaceSchedule, RaceResultSummary } from './types';
+import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster, NewsArticle, Team, DriverDetail, FullRaceSchedule, RaceResultSummary, DriverStanding } from './types';
 import { 
   HomeIcon, ChartBarIcon, ClockIcon, EmojiHappyIcon, 
   LvmhLogo, PirelliLogo, AramcoLogo, HeinekenLogo, AwsLogo, LenovoLogo, DhlLogo,
@@ -327,13 +327,13 @@ export const DRIVER_DETAILS_DATA: { [key: string]: DriverDetail } = {
     'lance-stroll': createDriverData({ id: 'lance-stroll', name: 'Lance Stroll', team: 'Aston Martin', number: 18, teamColor: '#00594F' }),
     'fernando-alonso': createDriverData({ id: 'fernando-alonso', name: 'Fernando Alonso', team: 'Aston Martin', number: 14, teamColor: '#00594F' }),
     'liam-lawson': createDriverData({ id: 'liam-lawson', name: 'Liam Lawson', team: 'Racing Bulls', number: 30, teamColor: '#0032FF' }),
-    'isack-hadjar': createDriverData({ id: 'isack-hadjar', name: 'Isack Hadjar', team: 'Racing Bulls', number: 31, teamColor: '#0032FF' }),
+    'isack-hadjar': createDriverData({ id: 'isack-hadjar', name: 'Isack Hadjar', team: 'Racing Bulls', number: 6, teamColor: '#0032FF' }),
     'nico-hulkenberg': createDriverData({ id: 'nico-hulkenberg', name: 'Nico Hulkenberg', team: 'Kick Sauber', number: 27, teamColor: '#00FF2D' }),
-    'gabriel-bortoleto': createDriverData({ id: 'gabriel-bortoleto', name: 'Gabriel Bortoleto', team: 'Kick Sauber', number: 28, teamColor: '#00FF2D' }),
+    'gabriel-bortoleto': createDriverData({ id: 'gabriel-bortoleto', name: 'Gabriel Bortoleto', team: 'Kick Sauber', number: 5, teamColor: '#00FF2D' }),
     'esteban-ocon': createDriverData({ id: 'esteban-ocon', name: 'Esteban Ocon', team: 'Haas', number: 31, teamColor: '#B6BABD' }),
-    'oliver-bearman': createDriverData({ id: 'oliver-bearman', name: 'Oliver Bearman', team: 'Haas', number: 50, teamColor: '#B6BABD' }),
+    'oliver-bearman': createDriverData({ id: 'oliver-bearman', name: 'Oliver Bearman', team: 'Haas', number: 87, teamColor: '#B6BABD' }),
     'pierre-gasly': createDriverData({ id: 'pierre-gasly', name: 'Pierre Gasly', team: 'Alpine', number: 10, teamColor: '#2293D1' }),
-    'franco-colapinto': createDriverData({ id: 'franco-colapinto', name: 'Franco Colapinto', team: 'Alpine', number: 11, teamColor: '#2293D1' }),
+    'franco-colapinto': createDriverData({ id: 'franco-colapinto', name: 'Franco Colapinto', team: 'Alpine', number: 43, teamColor: '#2293D1' }),
 };
 
 export const FULL_RACE_SCHEDULE_2025: FullRaceSchedule[] = [
@@ -381,4 +381,27 @@ export const RACE_RESULTS_2025: RaceResultSummary[] = [
   { grandPrix: 'Hungary', date: '03 Aug', winner: 'Lando Norris', team: 'McLaren', laps: 70, time: '1:35:21.231' },
   { grandPrix: 'Netherlands', date: '31 Aug', winner: 'Oscar Piastri', team: 'McLaren', laps: 72, time: '1:38:29.849' },
   { grandPrix: 'Italy', date: '07 Sep', winner: 'Max Verstappen', team: 'Red Bull Racing', laps: 53, time: '1:13:24.325' },
+];
+
+export const ITALIAN_GP_RESULTS_2025: DriverStanding[] = [
+  { pos: '1', no: 1, driver: 'Max Verstappen', team: 'Red Bull Racing', laps: 53, time: '1:13:24.325', pts: 25 },
+  { pos: '2', no: 4, driver: 'Lando Norris', team: 'McLaren', laps: 53, time: '+19.207s', pts: 18 },
+  { pos: '3', no: 81, driver: 'Oscar Piastri', team: 'McLaren', laps: 53, time: '+21.351s', pts: 15 },
+  { pos: '4', no: 16, driver: 'Charles Leclerc', team: 'Ferrari', laps: 53, time: '+25.624s', pts: 12 },
+  { pos: '5', no: 63, driver: 'George Russell', team: 'Mercedes', laps: 53, time: '+32.881s', pts: 10 },
+  { pos: '6', no: 44, driver: 'Lewis Hamilton', team: 'Ferrari', laps: 53, time: '+37.449s', pts: 8 },
+  { pos: '7', no: 23, driver: 'Alexander Albon', team: 'Williams', laps: 53, time: '+50.537s', pts: 6 },
+  { pos: '8', no: 5, driver: 'Gabriel Bortoleto', team: 'Kick Sauber', laps: 53, time: '+58.484s', pts: 4 },
+  { pos: '9', no: 12, driver: 'Kimi Antonelli', team: 'Mercedes', laps: 53, time: '+59.762s', pts: 2 },
+  { pos: '10', no: 6, driver: 'Isack Hadjar', team: 'Racing Bulls', laps: 53, time: '+63.891s', pts: 1 },
+  { pos: '11', no: 55, driver: 'Carlos Sainz', team: 'Williams', laps: 53, time: '+64.469s', pts: 0 },
+  { pos: '12', no: 87, driver: 'Oliver Bearman', team: 'Haas', laps: 53, time: '+79.288s', pts: 0 },
+  { pos: '13', no: 22, driver: 'Yuki Tsunoda', team: 'Red Bull Racing', laps: 53, time: '+80.701s', pts: 0 },
+  { pos: '14', no: 30, driver: 'Liam Lawson', team: 'Racing Bulls', laps: 53, time: '+82.351s', pts: 0 },
+  { pos: '15', no: 31, driver: 'Esteban Ocon', team: 'Haas', laps: 52, time: '+1 lap', pts: 0 },
+  { pos: '16', no: 10, driver: 'Pierre Gasly', team: 'Alpine', laps: 52, time: '+1 lap', pts: 0 },
+  { pos: '17', no: 43, driver: 'Franco Colapinto', team: 'Alpine', laps: 52, time: '+1 lap', pts: 0 },
+  { pos: '18', no: 18, driver: 'Lance Stroll', team: 'Aston Martin', laps: 52, time: '+1 lap', pts: 0 },
+  { pos: 'NC', no: 14, driver: 'Fernando Alonso', team: 'Aston Martin', laps: 24, time: 'DNF', pts: 0 },
+  { pos: 'NC', no: 27, driver: 'Nico Hulkenberg', team: 'Kick Sauber', laps: 0, time: 'DNS', pts: 0 },
 ];

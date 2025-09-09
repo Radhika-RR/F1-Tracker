@@ -122,3 +122,13 @@ export interface RaceResultSummary {
   laps: number;
   time: string;
 }
+
+export interface DriverStanding {
+  pos: string;
+  no: number;
+  driver: string;
+  team: string;
+  laps: number;
+  time: string;
+  pts: number;
+}
