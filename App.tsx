@@ -6,7 +6,7 @@ import { RacePredictorPage } from './pages/RacePredictorPage';
 import { PitStopPredictorPage } from './pages/PitStopPredictorPage';
 import { SentimentAnalyzerPage } from './pages/SentimentAnalyzerPage';
 import { MenuIcon, XIcon } from './components/icons/Icons';
-import { NAV_LINKS, HEADER_LINKS } from './constants';
+import { NAV_LINKS, HEADER_LINKS, DRIVERS_2025_ROSTER } from './constants';
 import type { NavLinkItem } from './types';
 import { Footer } from './components/Footer';
 
@@ -60,7 +60,33 @@ const Header: React.FC = () => {
                             </Link>
                             <div className="hidden md:block ml-10">
                                 <div className="flex items-baseline space-x-4">
-                                    {HEADER_LINKS.map(link => <NavLink key={link.path} to={link.path} className={navLinkClasses}>{link.name}</NavLink>)}
+                                    {HEADER_LINKS.map(link => {
+                                        if (link.name === 'Drivers') {
+                                            return (
+                                                <div key={link.path} className="relative group">
+                                                    <NavLink to={link.path} className={navLinkClasses}>
+                                                        {link.name}
+                                                    </NavLink>
+                                                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover:block z-[100]">
+                                                        <div className="bg-f1-light-dark rounded-lg shadow-2xl border border-gray-700 w-96 p-4 max-h-[70vh] overflow-y-auto">
+                                                            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                                                                {DRIVERS_2025_ROSTER.map(driver => (
+                                                                    <Link to="/drivers" key={driver.name} className="flex items-center space-x-3 p-2 rounded-md hover:bg-f1-dark transition-colors duration-200 group">
+                                                                        <img src={driver.photoUrl} alt={driver.name} className="w-10 h-10 rounded-full bg-gray-700 object-cover border-2 border-gray-600 transition-colors group-hover:border-f1-red" />
+                                                                        <div>
+                                                                            <span className="text-sm font-bold text-white block">{driver.name}</span>
+                                                                            <span className="text-xs text-gray-400 block">{driver.team}</span>
+                                                                        </div>
+                                                                    </Link>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+                                        return <NavLink key={link.path} to={link.path} className={navLinkClasses}>{link.name}</NavLink>;
+                                    })}
                                 </div>
                             </div>
                         </div>

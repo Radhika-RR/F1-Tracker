@@ -1,3 +1,4 @@
+
 import type { ReactNode } from 'react';
 
 export interface NavLinkItem {
@@ -52,4 +53,10 @@ export interface GpTimetable {
 export interface Partner {
   name: string;
   logo: React.FC;
+}
+
+export interface DriverRoster {
+  name: string;
+  team: string;
+  photoUrl: string;
 }

@@ -1,5 +1,6 @@
+
 import React from 'react';
-import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner } from './types';
+import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster } from './types';
 import { 
   HomeIcon, ChartBarIcon, ClockIcon, EmojiHappyIcon, 
   LvmhLogo, PirelliLogo, AramcoLogo, HeinekenLogo, AwsLogo, LenovoLogo, DhlLogo,
@@ -41,6 +42,29 @@ export const PIT_STOP_FORM_OPTIONS = {
     weather: ['Dry', 'Wet', 'Damp'],
     tyreCompounds: ['Soft', 'Medium', 'Hard', 'Intermediate', 'Wet'],
 };
+
+export const DRIVERS_2025_ROSTER: DriverRoster[] = [
+  { name: 'Oscar Piastri', team: 'McLaren', photoUrl: '' },
+  { name: 'Lando Norris', team: 'McLaren', photoUrl: '' },
+  { name: 'Charles Leclerc', team: 'Ferrari', photoUrl: '' },
+  { name: 'Lewis Hamilton', team: 'Ferrari', photoUrl: '' },
+  { name: 'George Russell', team: 'Mercedes', photoUrl: '' },
+  { name: 'Kimi Antonelli', team: 'Mercedes', photoUrl: '' },
+  { name: 'Max Verstappen', team: 'Red Bull Racing', photoUrl: '' },
+  { name: 'Yuki Tsunoda', team: 'Red Bull Racing', photoUrl: '' },
+  { name: 'Alexander Albon', team: 'Williams', photoUrl: '' },
+  { name: 'Carlos Sainz', team: 'Williams', photoUrl: '' },
+  { name: 'Lance Stroll', team: 'Aston Martin', photoUrl: '' },
+  { name: 'Fernando Alonso', team: 'Aston Martin', photoUrl: '' },
+  { name: 'Liam Lawson', team: 'Racing Bulls', photoUrl: '' },
+  { name: 'Isack Hadjar', team: 'Racing Bulls', photoUrl: '' },
+  { name: 'Nico Hulkenberg', team: 'Kick Sauber', photoUrl: '' },
+  { name: 'Gabriel Bortoleto', team: 'Kick Sauber', photoUrl: '' },
+  { name: 'Esteban Ocon', team: 'Haas', photoUrl: '' },
+  { name: 'Oliver Bearman', team: 'Haas', photoUrl: '' },
+  { name: 'Pierre Gasly', team: 'Alpine', photoUrl: '' },
+  { name: 'Franco Colapinto', team: 'Alpine', photoUrl: '' },
+];
 
 export const DRIVERS_DATA: Driver[] = [
   { id: 'verstappen', name: 'Max Verstappen', team: 'Red Bull Racing', number: 1, teamColor: 'bg-blue-800' },
