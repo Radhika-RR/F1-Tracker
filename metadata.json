@@ -1,0 +1,5 @@
+{
+  "name": "Formula 1 Analytics Hub",
+  "description": "An interactive and professional Formula 1 analytics website with ML-powered predictions for race outcomes, pit stop times, and fan sentiment analysis.",
+  "requestFramePermissions": []
+}
