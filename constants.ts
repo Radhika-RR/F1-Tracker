@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster, NewsArticle } from './types';
+import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster, NewsArticle, Team } from './types';
 import { 
   HomeIcon, ChartBarIcon, ClockIcon, EmojiHappyIcon, 
   LvmhLogo, PirelliLogo, AramcoLogo, HeinekenLogo, AwsLogo, LenovoLogo, DhlLogo,
@@ -115,6 +115,19 @@ export const MOCK_NEWS_ARTICLES: NewsArticle[] = [
     date: 'October 20, 2024',
     category: 'Feature',
   },
+];
+
+export const TEAMS_DATA: Team[] = [
+  { id: 'alpine', name: 'Alpine', logoUrl: '', carUrl: '', color: '#2293D1' },
+  { id: 'aston-martin', name: 'Aston Martin', logoUrl: '', carUrl: '', color: '#00594F' },
+  { id: 'ferrari', name: 'Ferrari', logoUrl: '', carUrl: '', color: '#D8291F' },
+  { id: 'haas', name: 'Haas', logoUrl: '', carUrl: '', color: '#B6BABD' },
+  { id: 'kick-sauber', name: 'Kick Sauber', logoUrl: '', carUrl: '', color: '#00FF2D' },
+  { id: 'mclaren', name: 'McLaren', logoUrl: '', carUrl: '', color: '#FF8000' },
+  { id: 'mercedes', name: 'Mercedes', logoUrl: '', carUrl: '', color: '#00A19C' },
+  { id: 'racing-bulls', name: 'Racing Bulls', logoUrl: '', carUrl: '', color: '#0032FF' },
+  { id: 'red-bull', name: 'Red Bull Racing', logoUrl: '', carUrl: '', color: '#1E41FF' },
+  { id: 'williams', name: 'Williams', logoUrl: '', carUrl: '', color: '#005AFF' },
 ];
 
 export const DRIVERS_DATA: Driver[] = [

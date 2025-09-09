@@ -6,6 +6,7 @@ import { RacePredictorPage } from './pages/RacePredictorPage';
 import { PitStopPredictorPage } from './pages/PitStopPredictorPage';
 import { SentimentAnalyzerPage } from './pages/SentimentAnalyzerPage';
 import { NewsPage } from './pages/NewsPage';
+import { TeamsPage } from './pages/TeamsPage';
 import { MenuIcon, XIcon } from './components/icons/Icons';
 import { NAV_LINKS, HEADER_LINKS, DRIVERS_2025_ROSTER } from './constants';
 import type { NavLinkItem } from './types';
@@ -147,7 +148,7 @@ const App: React.FC = () => {
               <Route path="/results" element={<PlaceholderPage title="Race Results" />} />
               <Route path="/news" element={<NewsPage />} />
               <Route path="/drivers" element={<PlaceholderPage title="F1 Drivers" />} />
-              <Route path="/teams" element={<PlaceholderPage title="F1 Teams" />} />
+              <Route path="/teams" element={<TeamsPage />} />
               <Route path="/fantasy" element={<PlaceholderPage title="F1 Fantasy" />} />
               <Route path="/gaming" element={<PlaceholderPage title="F1 Gaming" />} />
             </Routes>

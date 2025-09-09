@@ -69,3 +69,11 @@ export interface NewsArticle {
   date: string;
   category: string;
 }
+
+export interface Team {
+  id: string;
+  name: string;
+  logoUrl: string;
+  carUrl: string;
+  color: string;
+}
