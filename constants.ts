@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster, NewsArticle, Team } from './types';
+import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster, NewsArticle, Team, DriverDetail } from './types';
 import { 
   HomeIcon, ChartBarIcon, ClockIcon, EmojiHappyIcon, 
   LvmhLogo, PirelliLogo, AramcoLogo, HeinekenLogo, AwsLogo, LenovoLogo, DhlLogo,
@@ -44,26 +44,26 @@ export const PIT_STOP_FORM_OPTIONS = {
 };
 
 export const DRIVERS_2025_ROSTER: DriverRoster[] = [
-  { name: 'Oscar Piastri', team: 'McLaren', photoUrl: '' },
-  { name: 'Lando Norris', team: 'McLaren', photoUrl: '' },
-  { name: 'Charles Leclerc', team: 'Ferrari', photoUrl: '' },
-  { name: 'Lewis Hamilton', team: 'Ferrari', photoUrl: '' },
-  { name: 'George Russell', team: 'Mercedes', photoUrl: '' },
-  { name: 'Kimi Antonelli', team: 'Mercedes', photoUrl: '' },
-  { name: 'Max Verstappen', team: 'Red Bull Racing', photoUrl: '' },
-  { name: 'Yuki Tsunoda', team: 'Red Bull Racing', photoUrl: '' },
-  { name: 'Alexander Albon', team: 'Williams', photoUrl: '' },
-  { name: 'Carlos Sainz', team: 'Williams', photoUrl: '' },
-  { name: 'Lance Stroll', team: 'Aston Martin', photoUrl: '' },
-  { name: 'Fernando Alonso', team: 'Aston Martin', photoUrl: '' },
-  { name: 'Liam Lawson', team: 'Racing Bulls', photoUrl: '' },
-  { name: 'Isack Hadjar', team: 'Racing Bulls', photoUrl: '' },
-  { name: 'Nico Hulkenberg', team: 'Kick Sauber', photoUrl: '' },
-  { name: 'Gabriel Bortoleto', team: 'Kick Sauber', photoUrl: '' },
-  { name: 'Esteban Ocon', team: 'Haas', photoUrl: '' },
-  { name: 'Oliver Bearman', team: 'Haas', photoUrl: '' },
-  { name: 'Pierre Gasly', team: 'Alpine', photoUrl: '' },
-  { name: 'Franco Colapinto', team: 'Alpine', photoUrl: '' },
+    { id: 'oscar-piastri', name: 'Oscar Piastri', team: 'McLaren', photoUrl: '' },
+    { id: 'lando-norris', name: 'Lando Norris', team: 'McLaren', photoUrl: '' },
+    { id: 'charles-leclerc', name: 'Charles Leclerc', team: 'Ferrari', photoUrl: '' },
+    { id: 'lewis-hamilton', name: 'Lewis Hamilton', team: 'Ferrari', photoUrl: '' },
+    { id: 'george-russell', name: 'George Russell', team: 'Mercedes', photoUrl: '' },
+    { id: 'kimi-antonelli', name: 'Kimi Antonelli', team: 'Mercedes', photoUrl: '' },
+    { id: 'max-verstappen', name: 'Max Verstappen', team: 'Red Bull Racing', photoUrl: '' },
+    { id: 'yuki-tsunoda', name: 'Yuki Tsunoda', team: 'Red Bull Racing', photoUrl: '' },
+    { id: 'alexander-albon', name: 'Alexander Albon', team: 'Williams', photoUrl: '' },
+    { id: 'carlos-sainz', name: 'Carlos Sainz', team: 'Williams', photoUrl: '' },
+    { id: 'lance-stroll', name: 'Lance Stroll', team: 'Aston Martin', photoUrl: '' },
+    { id: 'fernando-alonso', name: 'Fernando Alonso', team: 'Aston Martin', photoUrl: '' },
+    { id: 'liam-lawson', name: 'Liam Lawson', team: 'Racing Bulls', photoUrl: '' },
+    { id: 'isack-hadjar', name: 'Isack Hadjar', team: 'Racing Bulls', photoUrl: '' },
+    { id: 'nico-hulkenberg', name: 'Nico Hulkenberg', team: 'Kick Sauber', photoUrl: '' },
+    { id: 'gabriel-bortoleto', name: 'Gabriel Bortoleto', team: 'Kick Sauber', photoUrl: '' },
+    { id: 'esteban-ocon', name: 'Esteban Ocon', team: 'Haas', photoUrl: '' },
+    { id: 'oliver-bearman', name: 'Oliver Bearman', team: 'Haas', photoUrl: '' },
+    { id: 'pierre-gasly', name: 'Pierre Gasly', team: 'Alpine', photoUrl: '' },
+    { id: 'franco-colapinto', name: 'Franco Colapinto', team: 'Alpine', photoUrl: '' },
 ];
 
 export const MOCK_NEWS_ARTICLES: NewsArticle[] = [
@@ -199,3 +199,133 @@ export const PARTNERS_SECONDARY: Partner[] = [
   { name: 'BBS Motorsport', logo: BbsMotorsportLogo },
   { name: 'McDonalds', logo: McDonaldsLogo }
 ];
+
+
+// --- MOCK DRIVER DETAIL DATA ---
+const createDriverData = (overrides: Partial<DriverDetail>): DriverDetail => {
+    const baseData = {
+        id: (overrides.name || 'john-doe').toLowerCase().replace(' ', '-'),
+        name: 'John Doe',
+        team: 'Default Team',
+        number: 0,
+        teamColor: '#6B7280',
+        photoUrl: '',
+        carouselImages: [] as string[],
+        seasonStats: {
+            'Season Position': 'N/A',
+            'Season Points': 0,
+            'Grand Prix Races': 0,
+            'Grand Prix Wins': 0,
+            'Grand Prix Podiums': 0,
+        },
+        careerStats: {
+            'Grand Prix Entered': 0,
+            'Career Points': 0,
+            'World Championships': 0,
+            'Highest Race Finish': 'N/A',
+            'Podiums': 0,
+            'Pole Positions': 0,
+        },
+    };
+
+    const finalData = { ...baseData, ...overrides };
+
+    // Generate dynamic carousel images if they weren't provided in overrides
+    if (!overrides.carouselImages || overrides.carouselImages.length === 0) {
+        const teamColorHex = finalData.teamColor.substring(1);
+        finalData.carouselImages = [
+            `https://placehold.co/1200x600/${teamColorHex}/ffffff?text=${finalData.name.replace(/\s/g,'+')}`,
+            `https://placehold.co/1200x600/15151e/ffffff?text=${finalData.team.replace(/\s/g,'+')}+in+Action`,
+            `https://placehold.co/1200x600/303038/ffffff?text=Podium+Celebration`,
+        ];
+    }
+    
+    return finalData;
+};
+
+export const DRIVER_DETAILS_DATA: { [key: string]: DriverDetail } = {
+    'lewis-hamilton': createDriverData({
+        id: 'lewis-hamilton', name: 'Lewis Hamilton', team: 'Ferrari', number: 44, teamColor: '#D8291F',
+        seasonStats: {
+            'Season Position': '6th',
+            'Season Points': 117,
+            'Grand Prix Races': 16,
+            'Grand Prix Points': 103,
+            'Grand Prix Wins': 0,
+            'Grand Prix Podiums': 0,
+            'Grand Prix Poles': 0,
+            'Grand Prix Top 10s': 13,
+            'DHL Fastest Laps': 0,
+            'DNFs': 1,
+            'Sprint Races': 3,
+            'Sprint Points': 14,
+            'Sprint Wins': 1,
+            'Sprint Podiums': 2,
+            'Sprint Poles': 1,
+            'Sprint Top 10s': 2,
+        },
+        careerStats: {
+            'Grand Prix Entered': 372,
+            'Career Points': 4979.5,
+            'Highest Race Finish': '1 (x105)',
+            'Podiums': 202,
+            'Highest Grid Position': '1 (x104)',
+            'Pole Positions': 104,
+            'World Championships': 7,
+            'DNFs': 33,
+        }
+    }),
+    'max-verstappen': createDriverData({
+        id: 'max-verstappen', name: 'Max Verstappen', team: 'Red Bull Racing', number: 1, teamColor: '#1E41FF',
+        seasonStats: {
+            'Season Position': '1st',
+            'Season Points': 429,
+            'Grand Prix Races': 20,
+            'Grand Prix Wins': 15,
+            'Grand Prix Podiums': 18,
+        },
+        careerStats: {
+            'Grand Prix Entered': 209,
+            'Career Points': 3000.5,
+            'World Championships': 4,
+            'Highest Race Finish': '1 (x65)',
+            'Podiums': 110,
+            'Pole Positions': 45,
+        }
+    }),
+    'charles-leclerc': createDriverData({
+        id: 'charles-leclerc', name: 'Charles Leclerc', team: 'Ferrari', number: 16, teamColor: '#D8291F',
+        seasonStats: {
+            'Season Position': '2nd',
+            'Season Points': 280,
+            'Grand Prix Races': 20,
+            'Grand Prix Wins': 3,
+            'Grand Prix Podiums': 9,
+        },
+        careerStats: {
+            'Grand Prix Entered': 149,
+            'Career Points': 1350,
+            'World Championships': 0,
+            'Highest Race Finish': '1 (x8)',
+            'Podiums': 40,
+            'Pole Positions': 25,
+        }
+    }),
+    'lando-norris': createDriverData({ id: 'lando-norris', name: 'Lando Norris', team: 'McLaren', number: 4, teamColor: '#FF8000' }),
+    'oscar-piastri': createDriverData({ id: 'oscar-piastri', name: 'Oscar Piastri', team: 'McLaren', number: 81, teamColor: '#FF8000' }),
+    'george-russell': createDriverData({ id: 'george-russell', name: 'George Russell', team: 'Mercedes', number: 63, teamColor: '#00A19C' }),
+    'kimi-antonelli': createDriverData({ id: 'kimi-antonelli', name: 'Kimi Antonelli', team: 'Mercedes', number: 12, teamColor: '#00A19C' }),
+    'yuki-tsunoda': createDriverData({ id: 'yuki-tsunoda', name: 'Yuki Tsunoda', team: 'Red Bull Racing', number: 22, teamColor: '#1E41FF' }),
+    'alexander-albon': createDriverData({ id: 'alexander-albon', name: 'Alexander Albon', team: 'Williams', number: 23, teamColor: '#005AFF' }),
+    'carlos-sainz': createDriverData({ id: 'carlos-sainz', name: 'Carlos Sainz', team: 'Williams', number: 55, teamColor: '#005AFF' }),
+    'lance-stroll': createDriverData({ id: 'lance-stroll', name: 'Lance Stroll', team: 'Aston Martin', number: 18, teamColor: '#00594F' }),
+    'fernando-alonso': createDriverData({ id: 'fernando-alonso', name: 'Fernando Alonso', team: 'Aston Martin', number: 14, teamColor: '#00594F' }),
+    'liam-lawson': createDriverData({ id: 'liam-lawson', name: 'Liam Lawson', team: 'Racing Bulls', number: 30, teamColor: '#0032FF' }),
+    'isack-hadjar': createDriverData({ id: 'isack-hadjar', name: 'Isack Hadjar', team: 'Racing Bulls', number: 31, teamColor: '#0032FF' }),
+    'nico-hulkenberg': createDriverData({ id: 'nico-hulkenberg', name: 'Nico Hulkenberg', team: 'Kick Sauber', number: 27, teamColor: '#00FF2D' }),
+    'gabriel-bortoleto': createDriverData({ id: 'gabriel-bortoleto', name: 'Gabriel Bortoleto', team: 'Kick Sauber', number: 28, teamColor: '#00FF2D' }),
+    'esteban-ocon': createDriverData({ id: 'esteban-ocon', name: 'Esteban Ocon', team: 'Haas', number: 31, teamColor: '#B6BABD' }),
+    'oliver-bearman': createDriverData({ id: 'oliver-bearman', name: 'Oliver Bearman', team: 'Haas', number: 50, teamColor: '#B6BABD' }),
+    'pierre-gasly': createDriverData({ id: 'pierre-gasly', name: 'Pierre Gasly', team: 'Alpine', number: 10, teamColor: '#2293D1' }),
+    'franco-colapinto': createDriverData({ id: 'franco-colapinto', name: 'Franco Colapinto', team: 'Alpine', number: 11, teamColor: '#2293D1' }),
+};

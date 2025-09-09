@@ -7,6 +7,7 @@ import { PitStopPredictorPage } from './pages/PitStopPredictorPage';
 import { SentimentAnalyzerPage } from './pages/SentimentAnalyzerPage';
 import { NewsPage } from './pages/NewsPage';
 import { TeamsPage } from './pages/TeamsPage';
+import { DriverDetailPage } from './pages/DriverDetailPage';
 import { MenuIcon, XIcon } from './components/icons/Icons';
 import { NAV_LINKS, HEADER_LINKS, DRIVERS_2025_ROSTER } from './constants';
 import type { NavLinkItem } from './types';
@@ -66,15 +67,15 @@ const Header: React.FC = () => {
                                         if (link.name === 'Drivers') {
                                             return (
                                                 <div key={link.path} className="relative group">
-                                                    <NavLink to={link.path} className={navLinkClasses}>
+                                                    <NavLink to={link.path} className={navLinkClasses} onClick={(e) => e.preventDefault()}>
                                                         {link.name}
                                                     </NavLink>
                                                     <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover:block z-[100]">
                                                         <div className="bg-f1-light-dark rounded-lg shadow-2xl border border-gray-700 w-96 p-4 max-h-[70vh] overflow-y-auto">
                                                             <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                                                                 {DRIVERS_2025_ROSTER.map(driver => (
-                                                                    <Link to="/drivers" key={driver.name} className="flex items-center space-x-3 p-2 rounded-md hover:bg-f1-dark transition-colors duration-200 group">
-                                                                        <img src={driver.photoUrl} alt={driver.name} className="w-10 h-10 rounded-full bg-gray-700 object-cover border-2 border-gray-600 transition-colors group-hover:border-f1-red" />
+                                                                    <Link to={`/drivers/${driver.id}`} key={driver.id} className="flex items-center space-x-3 p-2 rounded-md hover:bg-f1-dark transition-colors duration-200 group">
+                                                                        <img src={driver.photoUrl || `https://placehold.co/40x40/303038/ffffff?text=${driver.name.split(' ').map(n=>n[0]).join('')}`} alt={driver.name} className="w-10 h-10 rounded-full bg-gray-700 object-cover border-2 border-gray-600 transition-colors group-hover:border-f1-red" />
                                                                         <div>
                                                                             <span className="text-sm font-bold text-white block">{driver.name}</span>
                                                                             <span className="text-xs text-gray-400 block">{driver.team}</span>
@@ -143,14 +144,17 @@ const App: React.FC = () => {
               <Route path="/race-predictor" element={<RacePredictorPage />} />
               <Route path="/pit-stop-predictor" element={<PitStopPredictorPage />} />
               <Route path="/sentiment-analyzer" element={<SentimentAnalyzerPage />} />
-              {/* New Placeholder Routes */}
+              
               <Route path="/schedule" element={<PlaceholderPage title="2025 Schedule" />} />
               <Route path="/results" element={<PlaceholderPage title="Race Results" />} />
               <Route path="/news" element={<NewsPage />} />
-              <Route path="/drivers" element={<PlaceholderPage title="F1 Drivers" />} />
+              <Route path="/drivers/:driverId" element={<DriverDetailPage />} />
               <Route path="/teams" element={<TeamsPage />} />
               <Route path="/fantasy" element={<PlaceholderPage title="F1 Fantasy" />} />
               <Route path="/gaming" element={<PlaceholderPage title="F1 Gaming" />} />
+              
+              {/* Fallback for /drivers to avoid empty page */}
+              <Route path="/drivers" element={<PlaceholderPage title="F1 Drivers" />} />
             </Routes>
         </main>
         <Footer />

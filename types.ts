@@ -56,6 +56,7 @@ export interface Partner {
 }
 
 export interface DriverRoster {
+  id: string;
   name: string;
   team: string;
   photoUrl: string;
@@ -76,4 +77,24 @@ export interface Team {
   logoUrl: string;
   carUrl: string;
   color: string;
+}
+
+export interface SeasonStats {
+  [key: string]: string | number;
+}
+
+export interface CareerStats {
+    [key: string]: string | number;
+}
+
+export interface DriverDetail {
+  id: string;
+  name: string;
+  team: string;
+  number: number;
+  teamColor: string;
+  photoUrl: string;
+  carouselImages: string[];
+  seasonStats: SeasonStats;
+  careerStats: CareerStats;
 }

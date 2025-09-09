@@ -40,17 +40,17 @@ const TeamCard: React.FC<{ team: Team }> = ({ team }) => {
         <h2 className="text-2xl font-black tracking-wide text-white">{team.name}</h2>
       </div>
 
-      {/* Car Image Container: Positioned to fill space and integrate */}
-      <div className="relative -mb-8 mt-auto flex flex-grow items-center justify-center">
+      {/* Car Image Container: Positioned absolutely to interact with the gradient */}
+      <div className="absolute inset-0 top-1/4 flex items-center justify-center">
         {team.carUrl ? (
           <img
             src={team.carUrl}
             alt={`${team.name} Car`}
-            className="drop-shadow-2xl w-full max-w-full object-contain transition-transform duration-500 ease-out group-hover:-translate-y-2 group-hover:scale-110"
+            className="absolute bottom-0 w-[120%] max-w-[120%] drop-shadow-2xl object-contain transition-transform duration-500 ease-out group-hover:-translate-y-3 group-hover:scale-105"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center">
-            <p className="select-none text-3xl font-black tracking-[.2em] text-white/5">
+            <p className="select-none text-4xl font-black tracking-[.2em] text-white/10">
               {team.name.split(' ')[0].toUpperCase()}
             </p>
           </div>
