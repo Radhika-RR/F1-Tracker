@@ -9,8 +9,9 @@ import { NewsPage } from './pages/NewsPage';
 import { TeamsPage } from './pages/TeamsPage';
 import { DriverDetailPage } from './pages/DriverDetailPage';
 import { SchedulePage } from './pages/SchedulePage';
+import { RaceResultsPage } from './pages/RaceResultsPage';
 import { MenuIcon, XIcon } from './components/icons/Icons';
-import { NAV_LINKS, HEADER_LINKS, DRIVERS_2025_ROSTER } from './constants';
+import { NAV_LINKS, HEADER_LINKS, DRIVERS_2025_ROSTER, RESULTS_DROPDOWN_LINKS } from './constants';
 import type { NavLinkItem } from './types';
 import { Footer } from './components/Footer';
 
@@ -89,6 +90,26 @@ const Header: React.FC = () => {
                                                 </div>
                                             );
                                         }
+                                        if (link.name === 'Results') {
+                                          return (
+                                            <div key={link.path} className="relative group">
+                                              <NavLink to={link.path} className={navLinkClasses} onClick={(e) => e.preventDefault()}>
+                                                {link.name}
+                                              </NavLink>
+                                              <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover:block z-[100]">
+                                                <div className="bg-f1-light-dark rounded-lg shadow-2xl border border-gray-700 w-64 p-2">
+                                                  <div className="flex flex-col space-y-1">
+                                                    {RESULTS_DROPDOWN_LINKS.map(subLink => (
+                                                      <Link to={subLink.path} key={subLink.path} className="block px-4 py-2 text-sm text-white rounded-md hover:bg-f1-dark transition-colors">
+                                                        {subLink.name}
+                                                      </Link>
+                                                    ))}
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          );
+                                        }
                                         return <NavLink key={link.path} to={link.path} className={navLinkClasses}>{link.name}</NavLink>;
                                     })}
                                 </div>
@@ -147,7 +168,10 @@ const App: React.FC = () => {
               <Route path="/sentiment-analyzer" element={<SentimentAnalyzerPage />} />
               
               <Route path="/schedule" element={<SchedulePage />} />
-              <Route path="/results" element={<PlaceholderPage title="Race Results" />} />
+              <Route path="/results" element={<RaceResultsPage />} />
+              <Route path="/results/driver-standing" element={<PlaceholderPage title="Driver Standings" />} />
+              <Route path="/results/team-standing" element={<PlaceholderPage title="Team Standings" />} />
+              <Route path="/results/f1-award" element={<PlaceholderPage title="F1 Awards" />} />
               <Route path="/news" element={<NewsPage />} />
               <Route path="/drivers/:driverId" element={<DriverDetailPage />} />
               <Route path="/teams" element={<TeamsPage />} />

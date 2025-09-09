@@ -113,3 +113,12 @@ export interface FullRaceSchedule {
   status: 'past' | 'next' | 'upcoming';
   results?: RaceResult[];
 }
+
+export interface RaceResultSummary {
+  grandPrix: string;
+  date: string;
+  winner: string;
+  team: string;
+  laps: number;
+  time: string;
+}

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster, NewsArticle, Team, DriverDetail, FullRaceSchedule } from './types';
+import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster, NewsArticle, Team, DriverDetail, FullRaceSchedule, RaceResultSummary } from './types';
 import { 
   HomeIcon, ChartBarIcon, ClockIcon, EmojiHappyIcon, 
   LvmhLogo, PirelliLogo, AramcoLogo, HeinekenLogo, AwsLogo, LenovoLogo, DhlLogo,
@@ -29,6 +29,12 @@ export const HEADER_LINKS: NavLinkItem[] = [
   { path: '/gaming', name: 'Gaming' },
 ];
 
+export const RESULTS_DROPDOWN_LINKS: NavLinkItem[] = [
+  { path: '/results', name: '2025 Season' },
+  { path: '/results/driver-standing', name: 'Driver Standing' },
+  { path: '/results/team-standing', name: 'Team Standing' },
+  { path: '/results/f1-award', name: 'F1 Award' },
+];
 
 export const RACE_FORM_OPTIONS = {
   tracks: ['Monaco', 'Silverstone', 'Monza', 'Spa-Francorchamps', 'Suzuka'],
@@ -356,4 +362,23 @@ export const FULL_RACE_SCHEDULE_2025: FullRaceSchedule[] = [
   { round: 22, date: '20 - 22 Nov', country: 'Las Vegas', officialTitle: 'FORMULA 1 HEINEKEN LAS VEGAS GRAND PRIX 2025', status: 'upcoming' },
   { round: 23, date: '28 - 30 Nov', country: 'Qatar', officialTitle: 'FORMULA 1 QATAR AIRWAYS QATAR GRAND PRIX 2025', status: 'upcoming' },
   { round: 24, date: '05 - 07 Dec', country: 'Abu Dhabi', officialTitle: 'FORMULA 1 ETIHAD AIRWAYS ABU DHABI GRAND PRIX 2025', status: 'upcoming' },
+];
+
+export const RACE_RESULTS_2025: RaceResultSummary[] = [
+  { grandPrix: 'Australia', date: '16 Mar', winner: 'Lando Norris', team: 'McLaren', laps: 57, time: '1:42:06.304' },
+  { grandPrix: 'China', date: '23 Mar', winner: 'Oscar Piastri', team: 'McLaren', laps: 56, time: '1:30:55.026' },
+  { grandPrix: 'Japan', date: '06 Apr', winner: 'Max Verstappen', team: 'Red Bull Racing', laps: 53, time: '1:22:06.983' },
+  { grandPrix: 'Bahrain', date: '13 Apr', winner: 'Oscar Piastri', team: 'McLaren', laps: 57, time: '1:35:39.435' },
+  { grandPrix: 'Saudi Arabia', date: '20 Apr', winner: 'Oscar Piastri', team: 'McLaren', laps: 50, time: '1:21:06.758' },
+  { grandPrix: 'Miami', date: '04 May', winner: 'Oscar Piastri', team: 'McLaren', laps: 57, time: '1:28:51.587' },
+  { grandPrix: 'Emilia-Romagna', date: '18 May', winner: 'Max Verstappen', team: 'Red Bull Racing', laps: 63, time: '1:31:33.199' },
+  { grandPrix: 'Monaco', date: '25 May', winner: 'Lando Norris', team: 'McLaren', laps: 78, time: '1:40:33.843' },
+  { grandPrix: 'Spain', date: '01 Jun', winner: 'Oscar Piastri', team: 'McLaren', laps: 66, time: '1:32:57.375' },
+  { grandPrix: 'Canada', date: '15 Jun', winner: 'George Russell', team: 'Mercedes', laps: 70, time: '1:31:52.688' },
+  { grandPrix: 'Austria', date: '29 Jun', winner: 'Lando Norris', team: 'McLaren', laps: 70, time: '1:23:47.693' },
+  { grandPrix: 'Great Britain', date: '06 Jul', winner: 'Lando Norris', team: 'McLaren', laps: 52, time: '1:37:15.735' },
+  { grandPrix: 'Belgium', date: '27 Jul', winner: 'Oscar Piastri', team: 'McLaren', laps: 44, time: '1:25:22.601' },
+  { grandPrix: 'Hungary', date: '03 Aug', winner: 'Lando Norris', team: 'McLaren', laps: 70, time: '1:35:21.231' },
+  { grandPrix: 'Netherlands', date: '31 Aug', winner: 'Oscar Piastri', team: 'McLaren', laps: 72, time: '1:38:29.849' },
+  { grandPrix: 'Italy', date: '07 Sep', winner: 'Max Verstappen', team: 'Red Bull Racing', laps: 53, time: '1:13:24.325' },
 ];
