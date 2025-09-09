@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster, NewsArticle, Team, DriverDetail } from './types';
+import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster, NewsArticle, Team, DriverDetail, FullRaceSchedule } from './types';
 import { 
   HomeIcon, ChartBarIcon, ClockIcon, EmojiHappyIcon, 
   LvmhLogo, PirelliLogo, AramcoLogo, HeinekenLogo, AwsLogo, LenovoLogo, DhlLogo,
@@ -329,3 +329,31 @@ export const DRIVER_DETAILS_DATA: { [key: string]: DriverDetail } = {
     'pierre-gasly': createDriverData({ id: 'pierre-gasly', name: 'Pierre Gasly', team: 'Alpine', number: 10, teamColor: '#2293D1' }),
     'franco-colapinto': createDriverData({ id: 'franco-colapinto', name: 'Franco Colapinto', team: 'Alpine', number: 11, teamColor: '#2293D1' }),
 };
+
+export const FULL_RACE_SCHEDULE_2025: FullRaceSchedule[] = [
+  { round: 'TESTING', date: '26 - 28 Feb', country: 'Sakhir', officialTitle: 'FORMULA 1 ARAMCO PRE-SEASON TESTING 2025', status: 'past' },
+  { round: 1, date: '14 - 16 Mar', country: 'Australia', officialTitle: 'FORMULA 1 LOUIS VUITTON AUSTRALIAN GRAND PRIX 2025', status: 'past', results: [ { position: '1st', driver: 'NOR', time: '1:42:06.304' }, { position: '2nd', driver: 'VER', time: '+0.895' }, { position: '3rd', driver: 'RUS', time: '+8.481' } ] },
+  { round: 2, date: '21 - 23 Mar', country: 'China', officialTitle: 'FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2025', status: 'past', results: [ { position: '1st', driver: 'PIA', time: '1:30:55.026' }, { position: '2nd', driver: 'NOR', time: '+9.748' }, { position: '3rd', driver: 'RUS', time: '+11.097' } ] },
+  { round: 3, date: '04 - 06 Apr', country: 'Japan', officialTitle: 'FORMULA 1 LENOVO JAPANESE GRAND PRIX 2025', status: 'past', results: [ { position: '1st', driver: 'VER', time: '1:22:06.983' }, { position: '2nd', driver: 'NOR', time: '+1.423' }, { position: '3rd', driver: 'PIA', time: '+2.129' } ] },
+  { round: 4, date: '11 - 13 Apr', country: 'Bahrain', officialTitle: 'FORMULA 1 GULF AIR BAHRAIN GRAND PRIX 2025', status: 'past', results: [ { position: '1st', driver: 'PIA', time: '1:35:39.435' }, { position: '2nd', driver: 'RUS', time: '+15.499' }, { position: '3rd', driver: 'NOR', time: '+16.273' } ] },
+  { round: 5, date: '18 - 20 Apr', country: 'Saudi Arabia', officialTitle: 'FORMULA 1 STC SAUDI ARABIAN GRAND PRIX 2025', status: 'past', results: [ { position: '1st', driver: 'PIA', time: '1:21:06.758' }, { position: '2nd', driver: 'VER', time: '+2.843' }, { position: '3rd', driver: 'LEC', time: '+8.104' } ] },
+  { round: 6, date: '02 - 04 May', country: 'Miami', officialTitle: 'FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2025', status: 'past', results: [ { position: '1st', driver: 'PIA', time: '1:28:51.587' }, { position: '2nd', driver: 'NOR', time: '+4.63' }, { position: '3rd', driver: 'RUS', time: '+37.644' } ] },
+  { round: 7, date: '16 - 18 May', country: 'Emilia-Romagna', officialTitle: "FORMULA 1 AWS GRAN PREMIO DEL MADE IN ITALY E DELL'EMILIA-ROMAGNA 2025", status: 'past', results: [ { position: '1st', driver: 'VER', time: '1:31:33.199' }, { position: '2nd', driver: 'NOR', time: '+6.109' }, { position: '3rd', driver: 'PIA', time: '+12.956' } ] },
+  { round: 8, date: '23 - 25 May', country: 'Monaco', officialTitle: 'FORMULA 1 TAG HEUER GRAND PRIX DE MONACO 2025', status: 'past', results: [ { position: '1st', driver: 'NOR', time: '1:40:33.843' }, { position: '2nd', driver: 'LEC', time: '+3.131' }, { position: '3rd', driver: 'PIA', time: '+3.658' } ] },
+  { round: 9, date: '30 May - 01 Jun', country: 'Spain', officialTitle: 'FORMULA 1 ARAMCO GRAN PREMIO DE ESPAÑA 2025', status: 'past', results: [ { position: '1st', driver: 'PIA', time: '1:32:57.375' }, { position: '2nd', driver: 'NOR', time: '+2.471' }, { position: '3rd', driver: 'LEC', time: '+10.455' } ] },
+  { round: 10, date: '13 - 15 Jun', country: 'Canada', officialTitle: 'FORMULA 1 PIRELLI GRAND PRIX DU CANADA 2025', status: 'past', results: [ { position: '1st', driver: 'RUS', time: '1:31:52.688' }, { position: '2nd', driver: 'VER', time: '+0.228' }, { position: '3rd', driver: 'ANT', time: '+1.014' } ] },
+  { round: 11, date: '27 - 29 Jun', country: 'Austria', officialTitle: 'FORMULA 1 MSC CRUISES AUSTRIAN GRAND PRIX 2025', status: 'past', results: [ { position: '1st', driver: 'NOR', time: '1:23:47.693' }, { position: '2nd', driver: 'PIA', time: '+2.695' }, { position: '3rd', driver: 'LEC', time: '+19.82' } ] },
+  { round: 12, date: '04 - 06 Jul', country: 'Great Britain', officialTitle: 'FORMULA 1 QATAR AIRWAYS BRITISH GRAND PRIX 2025', status: 'past', results: [ { position: '1st', driver: 'NOR', time: '1:37:15.735' }, { position: '2nd', driver: 'PIA', time: '+6.812' }, { position: '3rd', driver: 'HUL', time: '+34.742' } ] },
+  { round: 13, date: '25 - 27 Jul', country: 'Belgium', officialTitle: 'FORMULA 1 MOËT & CHANDON BELGIAN GRAND PRIX 2025', status: 'past', results: [ { position: '1st', driver: 'PIA', time: '1:25:22.601' }, { position: '2nd', driver: 'NOR', time: '+3.415' }, { position: '3rd', driver: 'LEC', time: '+20.185' } ] },
+  { round: 14, date: '01 - 03 Aug', country: 'Hungary', officialTitle: 'FORMULA 1 LENOVO HUNGARIAN GRAND PRIX 2025', status: 'past', results: [ { position: '1st', driver: 'NOR', time: '1:35:21.231' }, { position: '2nd', driver: 'PIA', time: '+0.698' }, { position: '3rd', driver: 'RUS', time: '+21.916' } ] },
+  { round: 15, date: '29 - 31 Aug', country: 'Netherlands', officialTitle: 'FORMULA 1 HEINEKEN DUTCH GRAND PRIX 2025', status: 'past', results: [ { position: '1st', driver: 'PIA', time: '1:38:29.849' }, { position: '2nd', driver: 'VER', time: '+1.271' }, { position: '3rd', driver: 'HAD', time: '+3.233' } ] },
+  { round: 16, date: '05 - 07 Sep', country: 'Italy', officialTitle: 'FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2025', status: 'past', results: [ { position: '1st', driver: 'VER', time: '1:13:24.325' }, { position: '2nd', driver: 'NOR', time: '+19.207' }, { position: '3rd', driver: 'PIA', time: '+21.351' } ] },
+  { round: 17, date: '19 - 21 Sep', country: 'Azerbaijan', officialTitle: 'FORMULA 1 QATAR AIRWAYS AZERBAIJAN GRAND PRIX 2025', status: 'next' },
+  { round: 18, date: '03 - 05 Oct', country: 'Singapore', officialTitle: 'FORMULA 1 SINGAPORE AIRLINES SINGAPORE GRAND PRIX 2025', status: 'upcoming' },
+  { round: 19, date: '17 - 19 Oct', country: 'United States', officialTitle: 'FORMULA 1 MSC CRUISES UNITED STATES GRAND PRIX 2025', status: 'upcoming' },
+  { round: 20, date: '24 - 26 Oct', country: 'Mexico', officialTitle: 'FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2025', status: 'upcoming' },
+  { round: 21, date: '07 - 09 Nov', country: 'Brazil', officialTitle: 'FORMULA 1 MSC CRUISES GRANDE PRÊMIO DE SÃO PAULO 2025', status: 'upcoming' },
+  { round: 22, date: '20 - 22 Nov', country: 'Las Vegas', officialTitle: 'FORMULA 1 HEINEKEN LAS VEGAS GRAND PRIX 2025', status: 'upcoming' },
+  { round: 23, date: '28 - 30 Nov', country: 'Qatar', officialTitle: 'FORMULA 1 QATAR AIRWAYS QATAR GRAND PRIX 2025', status: 'upcoming' },
+  { round: 24, date: '05 - 07 Dec', country: 'Abu Dhabi', officialTitle: 'FORMULA 1 ETIHAD AIRWAYS ABU DHABI GRAND PRIX 2025', status: 'upcoming' },
+];

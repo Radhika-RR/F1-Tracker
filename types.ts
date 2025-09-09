@@ -98,3 +98,18 @@ export interface DriverDetail {
   seasonStats: SeasonStats;
   careerStats: CareerStats;
 }
+
+export interface RaceResult {
+  position: string;
+  driver: string;
+  time: string;
+}
+
+export interface FullRaceSchedule {
+  round: number | 'TESTING';
+  date: string;
+  country: string;
+  officialTitle: string;
+  status: 'past' | 'next' | 'upcoming';
+  results?: RaceResult[];
+}
