@@ -11,6 +11,8 @@ import { DriverDetailPage } from './pages/DriverDetailPage';
 import { SchedulePage } from './pages/SchedulePage';
 import { RaceResultsPage } from './pages/RaceResultsPage';
 import { DriverStandingsPage } from './pages/DriverStandingsPage';
+import { LoginPage } from './pages/LoginPage';
+import { BecomeMemberPage } from './pages/BecomeMemberPage';
 import { MenuIcon, XIcon } from './components/icons/Icons';
 import { NAV_LINKS, HEADER_LINKS, DRIVERS_2025_ROSTER, RESULTS_DROPDOWN_LINKS } from './constants';
 import type { NavLinkItem } from './types';
@@ -110,9 +112,9 @@ const Header: React.FC = () => {
                         <div className="hidden md:block">
                             <div className="flex items-center space-x-4">
                                 {renderDesktopLinks(NAV_LINKS)}
-                                <button className="ml-4 bg-gray-800 text-white px-4 py-2 rounded-md text-sm font-bold hover:bg-gray-700 transition-colors">
+                                <Link to="/login" className="ml-4 bg-gray-800 text-white px-4 py-2 rounded-md text-sm font-bold hover:bg-gray-700 transition-colors">
                                     F1® Member
-                                </button>
+                                </Link>
                             </div>
                         </div>
                         <div className="md:hidden flex items-center">
@@ -169,6 +171,8 @@ const App: React.FC = () => {
               <Route path="/teams" element={<TeamsPage />} />
               <Route path="/fantasy" element={<PlaceholderPage title="F1 Fantasy" />} />
               <Route path="/gaming" element={<PlaceholderPage title="F1 Gaming" />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/become-member" element={<BecomeMemberPage />} />
               
               {/* Fallback for /drivers to avoid empty page */}
               <Route path="/drivers" element={<PlaceholderPage title="F1 Drivers" />} />
