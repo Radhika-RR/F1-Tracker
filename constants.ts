@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster } from './types';
+import type { NavLinkItem, Driver, RaceSchedule, GpTimetable, Partner, DriverRoster, NewsArticle } from './types';
 import { 
   HomeIcon, ChartBarIcon, ClockIcon, EmojiHappyIcon, 
   LvmhLogo, PirelliLogo, AramcoLogo, HeinekenLogo, AwsLogo, LenovoLogo, DhlLogo,
@@ -64,6 +64,57 @@ export const DRIVERS_2025_ROSTER: DriverRoster[] = [
   { name: 'Oliver Bearman', team: 'Haas', photoUrl: '' },
   { name: 'Pierre Gasly', team: 'Alpine', photoUrl: '' },
   { name: 'Franco Colapinto', team: 'Alpine', photoUrl: '' },
+];
+
+export const MOCK_NEWS_ARTICLES: NewsArticle[] = [
+  {
+    id: 1,
+    title: 'Hamilton to Ferrari: A Deep Dive into the Shocking 2025 Move',
+    summary: 'We analyze the seismic shift in the F1 driver market as 7-time world champion Lewis Hamilton announces his move to Scuderia Ferrari for the 2025 season.',
+    imageUrl: 'https://placehold.co/600x400/e10600/ffffff?text=Hamilton+Joins+Ferrari',
+    date: 'October 26, 2024',
+    category: 'Driver Market',
+  },
+  {
+    id: 2,
+    title: 'Red Bull Unveils Radical RB21 Concept for Upcoming Season',
+    summary: 'Adrian Newey\'s latest creation, the RB21, breaks cover with an aggressive aerodynamic philosophy. Will it continue their dominant run?',
+    imageUrl: 'https://placehold.co/600x400/15151e/ffffff?text=RB21+Launch',
+    date: 'October 25, 2024',
+    category: 'Technical',
+  },
+  {
+    id: 3,
+    title: 'McLaren Momentum: Can Piastri and Norris Challenge for the Title?',
+    summary: 'After a stunning second half of the season, McLaren is poised to be a major contender. We look at their chances for championship glory.',
+    imageUrl: 'https://placehold.co/600x400/ff8700/ffffff?text=McLaren+Rising',
+    date: 'October 24, 2024',
+    category: 'Analysis',
+  },
+  {
+    id: 4,
+    title: 'The Las Vegas GP: A Spectacle of Speed and Entertainment',
+    summary: 'Relive the highlights from the action-packed Las Vegas Grand Prix, where racing under the lights delivered unforgettable moments.',
+    imageUrl: 'https://placehold.co/600x400/8c8c8d/ffffff?text=Vegas+GP+Recap',
+    date: 'October 22, 2024',
+    category: 'Race Report',
+  },
+  {
+    id: 5,
+    title: 'F1 Announces New Regulations to Promote Closer Racing',
+    summary: 'The FIA has revealed a new set of technical regulations aimed at reducing dirty air and allowing cars to follow more closely, promising more wheel-to-wheel action.',
+    imageUrl: 'https://placehold.co/600x400/006fcf/ffffff?text=New+Regulations',
+    date: 'October 21, 2024',
+    category: 'F1 News',
+  },
+  {
+    id: 6,
+    title: 'Inside the Mind of a Pit Crew: The Unsung Heroes of F1',
+    summary: 'A special feature on the intense training, precision, and pressure faced by the pit crews who can make or break a race in under two seconds.',
+    imageUrl: 'https://placehold.co/600x400/6B7280/ffffff?text=Pit+Crew+Feature',
+    date: 'October 20, 2024',
+    category: 'Feature',
+  },
 ];
 
 export const DRIVERS_DATA: Driver[] = [

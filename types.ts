@@ -60,3 +60,12 @@ export interface DriverRoster {
   team: string;
   photoUrl: string;
 }
+
+export interface NewsArticle {
+  id: number;
+  title: string;
+  summary: string;
+  imageUrl: string;
+  date: string;
+  category: string;
+}

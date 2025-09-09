@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage';
 import { RacePredictorPage } from './pages/RacePredictorPage';
 import { PitStopPredictorPage } from './pages/PitStopPredictorPage';
 import { SentimentAnalyzerPage } from './pages/SentimentAnalyzerPage';
+import { NewsPage } from './pages/NewsPage';
 import { MenuIcon, XIcon } from './components/icons/Icons';
 import { NAV_LINKS, HEADER_LINKS, DRIVERS_2025_ROSTER } from './constants';
 import type { NavLinkItem } from './types';
@@ -144,7 +145,7 @@ const App: React.FC = () => {
               {/* New Placeholder Routes */}
               <Route path="/schedule" element={<PlaceholderPage title="2025 Schedule" />} />
               <Route path="/results" element={<PlaceholderPage title="Race Results" />} />
-              <Route path="/news" element={<PlaceholderPage title="Latest News" />} />
+              <Route path="/news" element={<NewsPage />} />
               <Route path="/drivers" element={<PlaceholderPage title="F1 Drivers" />} />
               <Route path="/teams" element={<PlaceholderPage title="F1 Teams" />} />
               <Route path="/fantasy" element={<PlaceholderPage title="F1 Fantasy" />} />
